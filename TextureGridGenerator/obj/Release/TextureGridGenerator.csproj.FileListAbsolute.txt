@@ -7,3 +7,4 @@ D:\C#Projekte\TextureGridGenerator\TextureGridGenerator\obj\Release\TextureGridG
 D:\C#Projekte\TextureGridGenerator\TextureGridGenerator\obj\Release\TextureGridGenerator.csproj.CoreCompileInputs.cache
 D:\C#Projekte\TextureGridGenerator\TextureGridGenerator\obj\Release\TextureGridGenerator.exe
 D:\C#Projekte\TextureGridGenerator\TextureGridGenerator\obj\Release\TextureGridGenerator.pdb
+D:\C#Projekte\TextureGridGenerator\TextureGridGenerator\obj\Release\TextureGridGenerator.csprojAssemblyReference.cache

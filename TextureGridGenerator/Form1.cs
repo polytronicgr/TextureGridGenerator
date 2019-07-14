@@ -18,6 +18,8 @@ namespace TextureGridGenerator
         public Bitmap grid = new Bitmap(256, 256);
         Pen blackPen = new Pen(Color.Black, 1);
         Pen greyPen = new Pen(Color.LightGray, 0.25f);
+        SolidBrush alphaBright = new SolidBrush(Color.FromArgb(64, 200, 200, 200));
+        SolidBrush alphaDark = new SolidBrush(Color.FromArgb(64, 50, 50, 50));
 
         public Form1()
         {
@@ -37,7 +39,7 @@ namespace TextureGridGenerator
                 cols.Sum(x => x.G) / c, cols.Sum(x => x.B) / c);
         }
 
-        public void generate(int resolution, bool color, bool smallGrid)
+        public void generate(int resolution, bool color, bool smallGrid, bool checker)
         {
             grid.Dispose();
             grid = new Bitmap(resolution, resolution);
@@ -62,6 +64,42 @@ namespace TextureGridGenerator
             else
             {
                 gfx.FillRectangle(white, 0, 0, resolution, resolution);
+            }
+
+            if (checker)
+            {
+                int part = resolution / 10;
+                Size size = new Size(part, part);
+                for(int i = 0; i <= 9; i++)
+                {
+                    for(int j = 0; j <= 9; j++)
+                    {
+                        Point start = new Point(i * part, j*part);
+                        Rectangle rec = new Rectangle(start, size);
+                        if(j % 2 == 0)
+                        {
+                            if (i % 2 == 0)
+                            {
+                                gfx.FillRectangle(alphaBright, rec);
+                            }
+                            else
+                            {
+                                gfx.FillRectangle(alphaDark, rec);
+                            }
+                        }
+                        else
+                        {
+                            if (i % 2 == 1)
+                            {
+                                gfx.FillRectangle(alphaBright, rec);
+                            }
+                            else
+                            {
+                                gfx.FillRectangle(alphaDark, rec);
+                            }
+                        }
+                    }
+                }
             }
 
             if (smallGrid)
@@ -107,7 +145,7 @@ namespace TextureGridGenerator
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            generate(resolution, colorCheckBox.Checked, smallGridCheckbox.Checked);
+            generate(resolution, colorCheckBox.Checked, smallGridCheckbox.Checked, checkerCheckBox.Checked);
 
             pictureBox1.BackgroundImage = (Image)grid;
         }
@@ -174,67 +212,37 @@ namespace TextureGridGenerator
 
                 float bl = blackPen.Width;
                 float gr = greyPen.Width;
+                
+                for(int i = 512; i <= 8192; i *= 2)
+                {
+                    blackPen.Width = i / 512.0f;
+                    greyPen.Width = i / 2048.0f;
+                    for(int c = 0; c <= 1; c++)
+                    {
+                        for(int g = 0; g <= 1; g++)
+                        {
+                            for(int ch = 0; ch <= 1; ch++)
+                            {
+                                generate(i, c == 1, g == 1, ch == 1);
+                                string name = "\\";
+                                if (c == 0)
+                                    name += "bw_";
+                                else
+                                    name += "color_";
 
-                blackPen.Width = 1;
-                greyPen.Width = 0.25f;
-                generate(512, false, false);
-                grid.Save(basePath + "\\bw_512.png", System.Drawing.Imaging.ImageFormat.Png);
-                generate(512, true, false);
-                grid.Save(basePath + "\\color_512.png", System.Drawing.Imaging.ImageFormat.Png);
-                generate(512, false, true);
-                grid.Save(basePath + "\\bw_grid_512.png", System.Drawing.Imaging.ImageFormat.Png);
-                generate(512, true, true);
-                grid.Save(basePath + "\\color_grid_512.png", System.Drawing.Imaging.ImageFormat.Png);
-                System.GC.Collect();
+                                if (g == 1)
+                                    name += "grid_";
 
-                blackPen.Width = 2;
-                greyPen.Width = 0.5f;
-                generate(1024, false, false);
-                grid.Save(basePath + "\\bw_1024.png", System.Drawing.Imaging.ImageFormat.Png);
-                generate(1024, true, false);
-                grid.Save(basePath + "\\color_1024.png", System.Drawing.Imaging.ImageFormat.Png);
-                generate(1024, false, true);
-                grid.Save(basePath + "\\bw_grid_1024.png", System.Drawing.Imaging.ImageFormat.Png);
-                generate(1024, true, true);
-                grid.Save(basePath + "\\color_grid_1024.png", System.Drawing.Imaging.ImageFormat.Png);
-                System.GC.Collect();
+                                if (ch == 1)
+                                    name += "checker_";
 
-                blackPen.Width = 4;
-                greyPen.Width = 1;
-                generate(2048, false, false);
-                grid.Save(basePath + "\\bw_2048.png", System.Drawing.Imaging.ImageFormat.Png);
-                generate(2048, true, false);
-                grid.Save(basePath + "\\color_2048.png", System.Drawing.Imaging.ImageFormat.Png);
-                generate(2048, false, true);
-                grid.Save(basePath + "\\bw_grid_2048.png", System.Drawing.Imaging.ImageFormat.Png);
-                generate(2048, true, true);
-                grid.Save(basePath + "\\color_grid_2048.png", System.Drawing.Imaging.ImageFormat.Png);
-                System.GC.Collect();
-
-                blackPen.Width = 8;
-                greyPen.Width = 2;
-                generate(4096, false, false);
-                grid.Save(basePath + "\\bw_4096.png", System.Drawing.Imaging.ImageFormat.Png);
-                generate(4096, true, false);
-                grid.Save(basePath + "\\color_4096.png", System.Drawing.Imaging.ImageFormat.Png);
-                generate(4096, false, true);
-                grid.Save(basePath + "\\bw_grid_4096.png", System.Drawing.Imaging.ImageFormat.Png);
-                generate(4096, true, true);
-                grid.Save(basePath + "\\color_grid_4096.png", System.Drawing.Imaging.ImageFormat.Png);
-                System.GC.Collect();
-
-
-                blackPen.Width = 16;
-                greyPen.Width = 4;
-                generate(8192, false, false);
-                grid.Save(basePath + "\\bw_8192.png", System.Drawing.Imaging.ImageFormat.Png);
-                generate(8192, true, false);
-                grid.Save(basePath + "\\color_8192.png", System.Drawing.Imaging.ImageFormat.Png);
-                generate(8192, false, true);
-                grid.Save(basePath + "\\bw_grid_8192.png", System.Drawing.Imaging.ImageFormat.Png);
-                generate(8192, true, true);
-                grid.Save(basePath + "\\color_grid_8192.png", System.Drawing.Imaging.ImageFormat.Png);
-                System.GC.Collect();
+                                name += i;
+                                name += ".png";
+                                grid.Save(basePath + name, System.Drawing.Imaging.ImageFormat.Png);
+                            }
+                        }
+                    }
+                }
 
                 blackPen.Width = bl;
                 greyPen.Width = gr;

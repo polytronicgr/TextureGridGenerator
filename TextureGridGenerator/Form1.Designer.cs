@@ -31,14 +31,15 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.label1 = new System.Windows.Forms.Label();
-            this.resolutionLabel = new System.Windows.Forms.Label();
-            this.colorCheckBox = new System.Windows.Forms.CheckBox();
             this.smallGridCheckbox = new System.Windows.Forms.CheckBox();
+            this.colorCheckBox = new System.Windows.Forms.CheckBox();
+            this.resolutionLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.checkerCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -67,6 +68,7 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.checkerCheckBox);
             this.groupBox2.Controls.Add(this.smallGridCheckbox);
             this.groupBox2.Controls.Add(this.colorCheckBox);
             this.groupBox2.Controls.Add(this.resolutionLabel);
@@ -74,21 +76,48 @@
             this.groupBox2.Controls.Add(this.trackBar1);
             this.groupBox2.Location = new System.Drawing.Point(543, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(321, 152);
+            this.groupBox2.Size = new System.Drawing.Size(321, 166);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Settings";
             // 
-            // button1
+            // smallGridCheckbox
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(543, 407);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(321, 45);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Generate";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.smallGridCheckbox.AutoSize = true;
+            this.smallGridCheckbox.Location = new System.Drawing.Point(9, 109);
+            this.smallGridCheckbox.Name = "smallGridCheckbox";
+            this.smallGridCheckbox.Size = new System.Drawing.Size(73, 17);
+            this.smallGridCheckbox.TabIndex = 4;
+            this.smallGridCheckbox.Text = "Small Grid";
+            this.smallGridCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // colorCheckBox
+            // 
+            this.colorCheckBox.AutoSize = true;
+            this.colorCheckBox.Location = new System.Drawing.Point(9, 86);
+            this.colorCheckBox.Name = "colorCheckBox";
+            this.colorCheckBox.Size = new System.Drawing.Size(55, 17);
+            this.colorCheckBox.TabIndex = 3;
+            this.colorCheckBox.Text = "Colors";
+            this.colorCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // resolutionLabel
+            // 
+            this.resolutionLabel.AutoSize = true;
+            this.resolutionLabel.Location = new System.Drawing.Point(72, 19);
+            this.resolutionLabel.Name = "resolutionLabel";
+            this.resolutionLabel.Size = new System.Drawing.Size(48, 13);
+            this.resolutionLabel.TabIndex = 2;
+            this.resolutionLabel.Text = "512x512";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Resolution:";
             // 
             // trackBar1
             // 
@@ -102,43 +131,16 @@
             this.trackBar1.Value = 1;
             this.trackBar1.Scroll += new System.EventHandler(this.TrackBar1_Scroll);
             // 
-            // label1
+            // button1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Resolution:";
-            // 
-            // resolutionLabel
-            // 
-            this.resolutionLabel.AutoSize = true;
-            this.resolutionLabel.Location = new System.Drawing.Point(72, 19);
-            this.resolutionLabel.Name = "resolutionLabel";
-            this.resolutionLabel.Size = new System.Drawing.Size(48, 13);
-            this.resolutionLabel.TabIndex = 2;
-            this.resolutionLabel.Text = "512x512";
-            // 
-            // colorCheckBox
-            // 
-            this.colorCheckBox.AutoSize = true;
-            this.colorCheckBox.Location = new System.Drawing.Point(9, 86);
-            this.colorCheckBox.Name = "colorCheckBox";
-            this.colorCheckBox.Size = new System.Drawing.Size(55, 17);
-            this.colorCheckBox.TabIndex = 3;
-            this.colorCheckBox.Text = "Colors";
-            this.colorCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // smallGridCheckbox
-            // 
-            this.smallGridCheckbox.AutoSize = true;
-            this.smallGridCheckbox.Location = new System.Drawing.Point(9, 109);
-            this.smallGridCheckbox.Name = "smallGridCheckbox";
-            this.smallGridCheckbox.Size = new System.Drawing.Size(73, 17);
-            this.smallGridCheckbox.TabIndex = 4;
-            this.smallGridCheckbox.Text = "Small Grid";
-            this.smallGridCheckbox.UseVisualStyleBackColor = true;
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(543, 407);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(321, 45);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Generate";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // button2
             // 
@@ -160,6 +162,16 @@
             this.button3.Text = "Generate all variations...";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.Button3_Click);
+            // 
+            // checkerCheckBox
+            // 
+            this.checkerCheckBox.AutoSize = true;
+            this.checkerCheckBox.Location = new System.Drawing.Point(9, 132);
+            this.checkerCheckBox.Name = "checkerCheckBox";
+            this.checkerCheckBox.Size = new System.Drawing.Size(102, 17);
+            this.checkerCheckBox.TabIndex = 5;
+            this.checkerCheckBox.Text = "Checker pattern";
+            this.checkerCheckBox.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -196,6 +208,7 @@
         private System.Windows.Forms.CheckBox smallGridCheckbox;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.CheckBox checkerCheckBox;
     }
 }
 
