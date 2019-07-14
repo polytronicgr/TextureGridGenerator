@@ -1,0 +1,9 @@
+D:\C#Projekte\TextureGridGenerator\TextureGridGenerator\bin\Release\TextureGridGenerator.exe.config
+D:\C#Projekte\TextureGridGenerator\TextureGridGenerator\bin\Release\TextureGridGenerator.exe
+D:\C#Projekte\TextureGridGenerator\TextureGridGenerator\bin\Release\TextureGridGenerator.pdb
+D:\C#Projekte\TextureGridGenerator\TextureGridGenerator\obj\Release\TextureGridGenerator.Form1.resources
+D:\C#Projekte\TextureGridGenerator\TextureGridGenerator\obj\Release\TextureGridGenerator.Properties.Resources.resources
+D:\C#Projekte\TextureGridGenerator\TextureGridGenerator\obj\Release\TextureGridGenerator.csproj.GenerateResource.cache
+D:\C#Projekte\TextureGridGenerator\TextureGridGenerator\obj\Release\TextureGridGenerator.csproj.CoreCompileInputs.cache
+D:\C#Projekte\TextureGridGenerator\TextureGridGenerator\obj\Release\TextureGridGenerator.exe
+D:\C#Projekte\TextureGridGenerator\TextureGridGenerator\obj\Release\TextureGridGenerator.pdb
